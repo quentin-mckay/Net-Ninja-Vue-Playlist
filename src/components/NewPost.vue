@@ -4,12 +4,15 @@
     <h2>Add New Blog Post</h2>
 
     <form>
+      <!-- Title Field -->
       <label>Post Title:</label>
       <input type="text" required v-model.lazy.prevent="post.title">
 
+      <!-- Content Field -->
       <label>Post Content:</label>
       <textarea v-model.lazy="post.content"></textarea>
 
+      <!-- Category Checkboxes -->
       <div id="checkboxes">
         <label for="ninjas">Ninjas</label>
         <input type="checkbox" id="ninjas" value="ninjas" v-model="post.categories">
@@ -19,10 +22,16 @@
 
         <label for="mario">Mario</label>
         <input type="checkbox" id="mario" value="mario" v-model="post.categories">
-        
+
         <label for="cheese">Cheese</label>
         <input type="checkbox" id="cheese" value="cheese" v-model="post.categories">
       </div>
+
+      <!-- Author Select -->
+      <label>Author:</label>
+      <select v-model="post.author">
+        <option v-for="author in authors">{{ author }}</option>
+      </select>
     </form>
 
     <div id="preview">
@@ -34,6 +43,7 @@
       <ul>
         <li v-for="category in post.categories">{{ category }}</li>
       </ul>
+      <p>Post Author: {{ post.author }}</p>
     </div>
   </div>
 </template>
@@ -46,8 +56,10 @@ export default {
       post: {
         title: '',
         content: '',
-        categories: []
-      }
+        categories: [],
+        author: ''
+      },
+      authors: ['Quentin', 'Laura', 'Azzy', 'Spiderman']
     }
   },
   methods: {
@@ -99,6 +111,12 @@ h3 {
 
 #checkboxes label {
   display: inline-block;
+}
+
+@media (max-width: 400px) {
+  body {
+    margin: 15px;
+  }
 }
 
 </style>
