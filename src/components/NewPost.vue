@@ -3,12 +3,26 @@
 
     <h2>Add New Blog Post</h2>
 
-    <form v-on:submit.prevent>
+    <form>
       <label>Post Title:</label>
       <input type="text" required v-model.lazy.prevent="post.title">
 
       <label>Post Content:</label>
       <textarea v-model.lazy="post.content"></textarea>
+
+      <div id="checkboxes">
+        <label for="ninjas">Ninjas</label>
+        <input type="checkbox" id="ninjas" value="ninjas" v-model="post.categories">
+
+        <label for="wizards">Wizards</label>
+        <input type="checkbox" id="wizards" value="wizards" v-model="post.categories">
+
+        <label for="mario">Mario</label>
+        <input type="checkbox" id="mario" value="mario" v-model="post.categories">
+        
+        <label for="cheese">Cheese</label>
+        <input type="checkbox" id="cheese" value="cheese" v-model="post.categories">
+      </div>
     </form>
 
     <div id="preview">
@@ -16,6 +30,10 @@
       <p>Post Title: {{ post.title }}</p>
       <p>Post Content:</p>
       <p> {{ post.content }}</p>
+      <p>Post Categories:</p>
+      <ul>
+        <li v-for="category in post.categories">{{ category }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -27,14 +45,19 @@ export default {
     return {
       post: {
         title: '',
-        content: ''
+        content: '',
+        categories: []
       }
     }
   },
   methods: {
 
+  },
+  updated() {
+    console.log(this.post.categories);
   }
 }
+
 </script>
 
 <style>
@@ -66,7 +89,16 @@ input[type="text"], textarea {
 }
 
 h3 {
-  /* margin-top: 10px;  /* default h3 margin is 18.72 ?? too big */
+  margin-top: 10px;  /* default h3 margin is 18.72 ?? too big */
+}
+
+#checkboxes input {  /* could also do input[type="checkbox"] */
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#checkboxes label {
+  display: inline-block;
 }
 
 </style>
