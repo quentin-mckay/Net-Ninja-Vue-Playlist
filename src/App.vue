@@ -1,31 +1,22 @@
 <template>
   <div>
-    <form-helper>
-      <div slot="f-header">
-        <h3>This is the title of the form</h3>
-        <p>Info about the form</p>
-      </div>
-      <div slot="f-fields">
-        <input type="text" placeholder="Name" required>
-        <input type="password" placeholder="Password" required>
-      </div>
-      <div slot="f-controls">
-        <button v-on:click="handleSubmit">Submit</button>
-      </div>
-    </form-helper>
+    <new-post></new-post>
   </div>
+
+  
 </template>
 
 <script>
-import formHelper from './components/formHelper'
+import NewPost from './components/NewPost'
 
 export default {
   components: {
-    'form-helper': formHelper
+    'new-post': NewPost
+
   },
   data () {
     return {
-      title: 'I am a dynamic slot title'
+
     }
   },
   methods: {
@@ -35,5 +26,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+body {
+  margin: 0;
+  font-family: Nunito;
+}
 </style>
