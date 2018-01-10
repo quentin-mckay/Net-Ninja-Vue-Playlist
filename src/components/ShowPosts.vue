@@ -1,9 +1,9 @@
 <template>
-  <div id="show-posts">
+  <div v-theme:column="'narrow'" id="show-posts">
     <h1>All Blog Posts</h1>
 
     <div v-for="post in posts" class="single-post">
-      <h2>{{ post.title }}</h2>
+      <h2 v-rainbow>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
     </div>
   </div>
@@ -40,6 +40,16 @@ export default {
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* How to do it Grid style */
+/* #show-posts {
+  display: grid;
+  grid-template-columns: 1fr 800px 1fr;
+}
+
+#show-posts > * {
+  grid-column: 2;
+} */
 
 .single-post {
   background-color: #eee;
