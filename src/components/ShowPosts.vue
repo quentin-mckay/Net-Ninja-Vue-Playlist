@@ -1,10 +1,10 @@
 <template>
-  <div v-theme:column="'narrow'" id="show-posts">
+  <div id="show-posts">
     <h1>All Blog Posts</h1>
 
     <div v-for="post in posts" class="single-post">
-      <h2 v-rainbow>{{ post.title }}</h2>
-      <p>{{ post.body }}</p>
+      <h2>{{ post.title | to-uppercase }}</h2>
+      <p>{{ post.body | snippet }}</p>
     </div>
   </div>
 
