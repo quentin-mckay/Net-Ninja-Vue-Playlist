@@ -1,11 +1,11 @@
 <template>
   <div id="show-posts">
-    <h1>All Blog Posts</h1>
+    <h1>All Post Titles</h1>
+
     <input type="text" v-model="searchText" placeholder="Search posts...">
 
     <div v-for="post in filteredPosts" class="single-post">
       <h2 v-rainbow>{{ post.title | to-uppercase }}</h2>
-      <p>{{ post.body | snippet }}</p>
     </div>
   </div>
 

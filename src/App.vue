@@ -2,6 +2,7 @@
   <div>
     <!-- <new-post></new-post> -->
     <show-posts></show-posts>
+    <list-posts></list-posts>
   </div>
 
 
@@ -10,11 +11,13 @@
 <script>
 import NewPost from './components/NewPost'
 import ShowPosts from './components/ShowPosts'
+import ListPosts from './components/ListPosts'
 
 export default {
   components: {
     'new-post': NewPost,
-    'show-posts': ShowPosts
+    'show-posts': ShowPosts,
+    'list-posts': ListPosts
   },
   data () {
     return {
