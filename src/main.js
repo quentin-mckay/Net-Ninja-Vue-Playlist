@@ -8,12 +8,17 @@ import App from './App.vue'
 import VueResource from 'vue-resource'  // brings it in from node_modules
 Vue.use(VueResource)
 
-// Custom Directives
-Vue.directive('rainbow', {
-  bind(el, binding, vnode) {
-    el.style.color = '#' + Math.random().toString().slice(2, 8)
-  }
-})
+
+
+// --------Custom Directives-----------
+
+// Made this one locally registered
+
+// Vue.directive('rainbow', {
+//   bind(el, binding, vnode) {
+//     el.style.color = '#' + Math.random().toString().slice(2, 8)
+//   }
+// })
 
 Vue.directive('theme', {
   bind(el, binding, vnode) {
@@ -33,16 +38,21 @@ Vue.directive('theme', {
   }
 })
 
-// Custom Filters
-Vue.filter('to-uppercase', function(value) {      //  'value' is a String
-  return value.toUpperCase()
-})
 
+// ----------Custom Filters-----------
+
+// Made this one locally registered
+
+// Vue.filter('to-uppercase', function(value) {      //  'value' is a String
+//   return value.toUpperCase()
+// })
 
 Vue.filter('snippet', function(value) {
   // return first 100 characters
   return value.slice(0, 100) + '...'
 })
+
+
 
 // setup Event Bus
 export const bus = new Vue()
