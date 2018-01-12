@@ -88,7 +88,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 #new-post * {
   box-sizing: border-box;
 }
@@ -129,8 +129,10 @@ h3 {
   display: inline-block;
 }
 
+
+/* ====== MEDIA QUERY ====== */
 @media (max-width: 400px) {
-  body {
+  #new-post {
     margin: 15px;
   }
 }

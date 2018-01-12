@@ -2,6 +2,7 @@
   <div>
     <!-- <show-posts></show-posts>
     <list-posts></list-posts> -->
+    <app-header></app-header>
     <router-view></router-view>
   </div>
 
@@ -12,12 +13,14 @@
 import NewPost from './components/NewPost'
 import ShowPosts from './components/ShowPosts'
 import ListPosts from './components/ListPosts'
+import Header from './components/Header'
 
 export default {
   components: {
     'new-post': NewPost,
     'show-posts': ShowPosts,
-    'list-posts': ListPosts
+    'list-posts': ListPosts,
+    'app-header': Header
   },
   data () {
     return {
