@@ -8,6 +8,14 @@ import App from './App.vue'
 import VueResource from 'vue-resource'  // brings it in from node_modules
 Vue.use(VueResource)
 
+// --------Setup Router-----------
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+import Routes from './routes'  // don't need the .js
+const router = new VueRouter({
+  routes: Routes
+})
 
 
 // --------Custom Directives-----------
@@ -61,5 +69,6 @@ export const bus = new Vue()
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router: router         // user router initialized above
 })

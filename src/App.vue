@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <new-post></new-post> -->
-    <show-posts></show-posts>
-    <list-posts></list-posts>
+    <!-- <show-posts></show-posts>
+    <list-posts></list-posts> -->
+    <router-view></router-view>
   </div>
 
 
