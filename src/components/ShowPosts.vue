@@ -4,7 +4,10 @@
     <input type="text" v-model="searchText" placeholder="Search posts...">
 
     <div v-for="post in filteredPosts" class="single-post">
-      <h2 v-rainbow>{{ post.title | to-uppercase }}</h2>
+      <!-- <router-link v-bind:to="{name: 'view-post', params: {id: post.id}}"> -->  <!-- this is the "named routes" way of doing it -->
+      <router-link v-bind:to="'/post/' + post.id">
+        <h2 v-rainbow>{{ post.title | to-uppercase }}</h2>
+      </router-link>
       <p>{{ post.body | snippet }}</p>
     </div>
   </div>
