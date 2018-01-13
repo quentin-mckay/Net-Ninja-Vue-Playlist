@@ -8,7 +8,7 @@
       <router-link v-bind:to="'/post/' + post.id">
         <h2 v-rainbow>{{ post.title | to-uppercase }}</h2>
       </router-link>
-      <p>{{ post.body | snippet }}</p>
+      <p>{{ post.content | snippet }}</p>
     </div>
   </div>
 
@@ -30,8 +30,16 @@ export default {
 
   },
   created() {
-    this.$http.get('https://jsonplaceholder.typicode.com/posts').then(responseData => {
-      this.posts = responseData.body.slice(0, 10)
+    this.$http.get('https://net-ninja-vue-blog.firebaseio.com/posts.json').then(responseData => {
+      // this.posts = responseData.body.slice(0, 10)
+      return responseData.json()   // convert to json ?? and return promise object
+    }).then(data => {  // do something with promise object returned above
+      let postsArray = []
+      for (let key in data) {
+        data[key].id = key  // make the key of each element an string id of each element as well
+        postsArray.push(data[key])
+      }
+      this.posts = postsArray  // or could just push directly on to posts instead of creating temporary array
     })
   },
   computed: {
@@ -87,6 +95,10 @@ export default {
 input[type="text"] {        /* box-sizing matters for search box */
   width: 100%;
   padding: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 
 </style>

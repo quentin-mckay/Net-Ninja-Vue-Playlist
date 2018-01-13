@@ -1,7 +1,11 @@
 <template>
   <div id="single-post">
     <h1>{{ post.title }}</h1>
-    <article>{{ post.body }}</article>
+    <article>{{ post.content }}</article>
+    <p>Author: {{ post.author }}</p>
+    <ul>
+      <li v-for="category in post.categories">{{ category }}</li>
+    </ul>
   </div>
 </template>
 
@@ -14,8 +18,11 @@ export default {
     }
   },
   created() {
-    this.$http.get('https://jsonplaceholder.typicode.com/posts/' + this.id).then(responseData => {
-      this.post = responseData.body
+    this.$http.get('https://net-ninja-vue-blog.firebaseio.com/posts/' + this.id + '.json').then(responseData => {
+      // this.post = responseData.body
+      return responseData.json() // returns promise object
+    }).then(data => {
+      this.post = data   // data gives us single post object
     })
 
   }
@@ -24,7 +31,7 @@ export default {
 
 <style scoped>
 #single-post {
-  max-width: 960px;
+  max-width: 800px;
   margin: 0 auto;
 }
 </style>
