@@ -33,7 +33,7 @@ export default {
     this.$http.get('https://net-ninja-vue-blog.firebaseio.com/posts.json').then(responseData => {
       // this.posts = responseData.body.slice(0, 10)
       return responseData.json()   // convert to json ?? and return promise object
-    }).then(data => {  // do something with promise object returned above
+    }).then(data => {  // do something with promise object returned above. data is json at this point
       let postsArray = []
       for (let key in data) {
         data[key].id = key  // make the key of each element an string id of each element as well
