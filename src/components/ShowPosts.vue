@@ -88,4 +88,8 @@ input[type="text"] {        /* box-sizing matters for search box */
   width: 100%;
   padding: 10px;
 }
+
+a {
+  text-decoration: none;
+}
 </style>

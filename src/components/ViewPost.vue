@@ -16,7 +16,6 @@ export default {
   created() {
     this.$http.get('https://jsonplaceholder.typicode.com/posts/' + this.id).then(responseData => {
       this.post = responseData.body
-      console.log(responseData);
     })
 
   }
