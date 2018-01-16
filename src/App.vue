@@ -1,31 +1,30 @@
 <template>
   <div>
-    <form-helper>
-      <div slot="f-header">
-        <h3>This is the title of the form</h3>
-        <p>Info about the form</p>
-      </div>
-      <div slot="f-fields">
-        <input type="text" placeholder="Name" required>
-        <input type="password" placeholder="Password" required>
-      </div>
-      <div slot="f-controls">
-        <button v-on:click="handleSubmit">Submit</button>
-      </div>
-    </form-helper>
+    <!-- <show-posts></show-posts>
+    <list-posts></list-posts> -->
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
+
+
 </template>
 
 <script>
-import formHelper from './components/formHelper'
+import NewPost from './components/NewPost'
+import ShowPosts from './components/ShowPosts'
+import ListPosts from './components/ListPosts'
+import Header from './components/Header'
 
 export default {
   components: {
-    'form-helper': formHelper
+    'new-post': NewPost,
+    'show-posts': ShowPosts,
+    'list-posts': ListPosts,
+    'app-header': Header
   },
   data () {
     return {
-      title: 'I am a dynamic slot title'
+
     }
   },
   methods: {
@@ -35,5 +34,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+body {
+  margin: 0;
+  font-family: Nunito;
+}
 </style>
